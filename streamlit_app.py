@@ -1,22 +1,28 @@
 import streamlit as st
-import requests
+from duckduckgo_search import DDGS
 
-st.title("🔎 Keyword-based Web Search (via SerpAPI)")
+st.set_page_config(page_title="Web Scraper Search", layout="wide")
+st.title("🔎 Keyword Web Scraper (DuckDuckGo, No API)")
 
-api_key = "077fd1a463d500878454573862f5f76b4f4f3ad6f7a2e754e22c6e458a9dbaa7"  # Replace with your key
-
-query = st.text_input("Enter keyword to search news for:", value="startup funding")
+query = st.text_input("Enter your keyword:", "startup funding")
 
 if st.button("Search"):
-    url = f"https://serpapi.com/search.json?q={query}&hl=en&gl=us&api_key={api_key}"
-    res = requests.get(url)
-    if res.status_code == 200:
-        data = res.json()
-        if "organic_results" in data:
-            st.subheader("📰 Top Search Results")
-            for result in data["organic_results"][:10]:
-                st.markdown(f"- **[{result['title']}]({result['link']})**")
-        else:
-            st.warning("No results found.")
-    else:
-        st.error("Failed to fetch results from SerpAPI.")
+    with st.spinner("Scraping web results from DuckDuckGo..."):
+        try:
+            results = []
+            with DDGS() as ddgs:
+                for r in ddgs.text(query, max_results=10):
+                    results.append(r)
+
+            if not results:
+                st.warning("No results found.")
+            else:
+                st.subheader("🔗 Top Search Results")
+                for i, res in enumerate(results, 1):
+                    st.markdown(f"{i}. **[{res['title']}]({res['href']})**  \n{res['body']}")
+
+        except Exception as e:
+            st.error(f"Error occurred: {e}")
+
+st.markdown("---")
+st.markdown("⚠️ Demo tool using unofficial DuckDuckGo search. Not suitable for heavy scraping.")
