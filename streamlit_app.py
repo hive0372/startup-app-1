@@ -3,7 +3,7 @@ import requests
 
 st.title("🔎 Keyword-based Web Search (via SerpAPI)")
 
-api_key = "SERP_API_KEY"  # Replace with your key
+api_key = "077fd1a463d500878454573862f5f76b4f4f3ad6f7a2e754e22c6e458a9dbaa7"  # Replace with your key
 
 query = st.text_input("Enter keyword to search news for:", value="startup funding")
 
