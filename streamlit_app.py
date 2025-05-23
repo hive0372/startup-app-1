@@ -2,7 +2,7 @@ import streamlit as st
 from duckduckgo_search import DDGS
 
 st.set_page_config(page_title="Web Scraper Search", layout="wide")
-st.title("🔎 Keyword Web Scraper (DuckDuckGo, No API)")
+st.title("🔎 Keyword Web Scraper ")
 
 query = st.text_input("Enter your keyword:", "startup funding")
 
