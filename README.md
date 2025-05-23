@@ -1,8 +1,8 @@
-# 🎈 Blank app template
+# Fetching web results via serpAPI
 
-A simple Streamlit app template for you to modify!
+A simple Streamlit app to fetch web results via SerpAPI
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://startup-app-0q8tx2vjks1.streamlit.app/)
 
 ### How to run it on your own machine
 
