@@ -1,6 +1,6 @@
-# Fetching web results via serpAPI
+# Fetching web results 
 
-A simple Streamlit app to fetch web results via SerpAPI
+A simple Streamlit app to fetch web results .
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://startup-app-0q8tx2vjks1.streamlit.app/)
 
